@@ -1,6 +1,14 @@
 
+  let url = window.location.href;
+  let SWlocation = '/twittor/sw.js';
+
   if(navigator.serviceWorker){
-      navigator.serviceWorker.register('/sw.js');
+
+      // comprobar si estamos en produccion o en desarrollo
+      if(url.includes('localhost')){
+          SWlocation = '/sw.js';
+      }
+      navigator.serviceWorker.register(SWlocation);
   }
 
 

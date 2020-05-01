@@ -8,7 +8,7 @@
 
   // recursos minimos necesarios para que nuestra aplicacion funcione (corazon)
   const APP_SHELL = [
-    '/',
+    // '/',
     'index.html',
     'css/style.css',
     'img/favicon.ico',
