@@ -2,8 +2,8 @@
   // imports
   importScripts('js/sw-utils.js');
 
-  const CACHE_STATIC = 'static-v3';
-  const CACHE_DYNAMIC = 'dynamic-v1';
+  const CACHE_STATIC = 'static-v4';
+  const CACHE_DYNAMIC = 'dynamic-v2';
   const CACHE_INMUTABLE = 'inmutable-v1';
 
   // recursos minimos necesarios para que nuestra aplicacion funcione (corazon)
@@ -43,10 +43,13 @@
   // activacion del SW
   self.addEventListener('activate', e => {
 
-    // comprobamos y borramos cache static
+    // comprobamos y borramos cache static o dynamic
     const responseKeys = caches.keys().then(keys => {
       keys.forEach(key => {
         if(key.includes('static') && key !== CACHE_STATIC) caches.delete(key);
+
+        if(key.includes('dynamic') && key !== CACHE_DYNAMIC) caches.delete(key);
+
       });
     })
 
